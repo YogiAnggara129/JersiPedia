@@ -1,14 +1,17 @@
 import {StyleSheet, View} from 'react-native';
-import React, {useEffect, useState} from 'react';
-import {ILiga, dummyLigas} from '../../../data/dummyLigas';
+import React from 'react';
 import CardLiga from '../../small/CardLiga';
+import {ILiga} from '../../../data/interface/liga';
 
-export default function ListLiga() {
-  const listLiga = useListLiga();
+export interface IListLigaProps {
+  ligas: ILiga[];
+}
+
+export default function ListLiga(props: IListLigaProps) {
   return (
     <View style={styles.container}>
-      {listLiga.map(liga => (
-        <CardLiga liga={liga} />
+      {props.ligas.map(liga => (
+        <CardLiga key={liga.id} liga={liga} />
       ))}
     </View>
   );
@@ -20,12 +23,3 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
 });
-
-function useListLiga() {
-  const [listLiga, setListLiga] = useState<ILiga[]>([]);
-  useEffect(() => {
-    setListLiga(dummyLigas);
-  }, []);
-
-  return listLiga;
-}

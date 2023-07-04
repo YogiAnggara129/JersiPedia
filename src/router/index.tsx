@@ -49,7 +49,7 @@ const tabItemList: ITabItem[] = [
     title: 'Jersey',
     component: ListJersey,
     icon: JerseyIcon,
-    isHeaderShown: true,
+    isHeaderShown: false,
   },
   {
     name: 'Profile',

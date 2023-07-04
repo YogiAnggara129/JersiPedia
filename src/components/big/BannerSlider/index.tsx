@@ -16,10 +16,10 @@ export default function BannerSlider() {
           </View>
         )}
         itemWidth={width}
-        onSnapToItem={(item: any) => console.log(item)}
+        // onSnapToItem={(item: any) => console.log(item)}
         paginationColor={colors.primary}
         paginationType="circle"
-        autoplayDelay={500}
+        // autoplayDelay={500}
         bounces
         // pagination
         autoplay

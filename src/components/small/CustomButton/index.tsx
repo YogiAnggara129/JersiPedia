@@ -1,22 +1,35 @@
+/* eslint-disable react-native/no-inline-styles */
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React, {ReactNode} from 'react';
-import {colors} from '../../../utils';
+import {colors, fonts} from '../../../utils';
 import {CartIc} from '../../../assets/icons';
 
 type CustomButtonActionProps = {
   onPress?: () => void;
 };
 
-type CustomButtonProps = {
+type CustomIconButtonProps = {
   icon: ReactNode;
   badgeNumber?: number;
 };
 
-export default function CustomButton(
-  props: CustomButtonProps & CustomButtonActionProps,
+type CustomTextButtonProps = {
+  text: string;
+};
+
+type CustomButtonStyleProps = {
+  padding?: number;
+};
+
+export default function CustomIconButton(
+  props: CustomIconButtonProps &
+    CustomButtonActionProps &
+    CustomButtonStyleProps,
 ) {
   return (
-    <TouchableOpacity style={styles.container} onPress={props.onPress}>
+    <TouchableOpacity
+      style={{...styles.container, padding: props.padding ?? 10}}
+      onPress={props.onPress}>
       {props.icon}
       {(props.badgeNumber ?? 0) > 0 && (
         <View style={styles.badgeContainer}>
@@ -27,11 +40,29 @@ export default function CustomButton(
   );
 }
 
+export function CustomTextButton(
+  props: CustomTextButtonProps &
+    CustomButtonActionProps &
+    CustomButtonStyleProps,
+) {
+  return (
+    <TouchableOpacity
+      style={{
+        ...styles.container,
+        backgroundColor: colors.primary,
+        padding: props.padding ?? 5,
+      }}
+      onPress={props.onPress}>
+      <Text style={styles.title}>{props.text}</Text>
+    </TouchableOpacity>
+  );
+}
+
 export function CartButton(
   props: {totalCart?: number} & CustomButtonActionProps,
 ) {
   return (
-    <CustomButton
+    <CustomIconButton
       icon={<CartIc />}
       badgeNumber={props.totalCart}
       onPress={props.onPress}
@@ -59,5 +90,10 @@ const styles = StyleSheet.create({
   badgeText: {
     fontSize: 8,
     color: colors.white,
+  },
+  title: {
+    textAlign: 'center',
+    color: colors.white,
+    fontFamily: fonts.primary.bold,
   },
 });

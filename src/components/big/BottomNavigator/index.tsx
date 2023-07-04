@@ -80,6 +80,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.primary,
     marginHorizontal: 30,
     marginBottom: 30,
+    // marginBottom: responsiveHeight(30),
     paddingVertical: 8,
     borderRadius: 5,
     shadowColor: '#000',

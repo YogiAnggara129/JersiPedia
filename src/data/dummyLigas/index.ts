@@ -4,12 +4,7 @@ import {
   PremierLeagueImg,
   SerieAImg,
 } from '../../assets';
-
-export interface ILiga {
-  id: number;
-  name: string;
-  image: any;
-}
+import {ILiga} from '../interface/liga';
 
 export const dummyLigas: ILiga[] = [
   {
