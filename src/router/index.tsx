@@ -56,7 +56,7 @@ const tabItemList: ITabItem[] = [
     title: 'Profile',
     component: Profile,
     icon: ProfileIcon,
-    isHeaderShown: true,
+    isHeaderShown: false,
   },
 ];
 

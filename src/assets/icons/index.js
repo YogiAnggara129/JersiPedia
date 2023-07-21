@@ -6,6 +6,11 @@ import ProfileActive from './profile-active.svg';
 import ProfileIc from './profile.svg';
 import SearchIc from './search.svg';
 import CartIc from './cart.svg';
+import ArrowRightIc from './arrow-right.svg';
+import ChangePasswordIc from './change-password.svg';
+import EditProfileIc from './edit-profile.svg';
+import SignOutIc from './sign-out.svg';
+import HistoryIc from './history.svg';
 
 export {
   HomeActive,
@@ -16,4 +21,9 @@ export {
   ProfileIc,
   SearchIc,
   CartIc,
+  ArrowRightIc,
+  ChangePasswordIc,
+  EditProfileIc,
+  SignOutIc,
+  HistoryIc,
 };
