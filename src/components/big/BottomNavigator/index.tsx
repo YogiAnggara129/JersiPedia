@@ -2,18 +2,21 @@ import React from 'react';
 import {View, StyleSheet} from 'react-native';
 import TabItem from '../TabItem';
 import {colors} from '../../../utils';
+import {RootStackParamList} from '../../../router';
+import {NativeStackScreenProps} from '@react-navigation/native-stack';
 
+type Props = NativeStackScreenProps<RootStackParamList, 'MainApp'>;
 interface IBottomNavigationProps {
   state: any;
   descriptors: any;
-  navigation: any;
+  // navigation: any;
 }
 
 export default function BottomNavigator({
   state,
   descriptors,
   navigation,
-}: IBottomNavigationProps) {
+}: IBottomNavigationProps & Props) {
   return (
     <View style={styles.container}>
       {state.routes.map((route: any, index: number) => {
@@ -28,23 +31,24 @@ export default function BottomNavigator({
         const isFocused = state.index === index;
 
         const onPress = () => {
-          const event = navigation.emit({
-            type: 'tabPress',
-            target: route.key,
-            canPreventDefault: true,
-          });
+          // const event = navigation.emit({
+          //   type: 'tabPress',
+          //   target: route.key,
+          //   canPreventDefault: true,
+          // });
 
-          if (!isFocused && !event.defaultPrevented) {
+          // if (!isFocused && !event.defaultPrevented) {
+          if (!isFocused) {
             // The `merge: true` option makes sure that the params inside the tab screen are preserved
-            navigation.navigate({name: route.name, merge: true});
+            navigation.navigate(route.name);
           }
         };
 
         const onLongPress = () => {
-          navigation.emit({
-            type: 'tabLongPress',
-            target: route.key,
-          });
+          // navigation.emit({
+          //   type: 'tabLongPress',
+          //   target: route.key,
+          // });
         };
 
         return (

@@ -11,6 +11,8 @@ import ChangePasswordIc from './change-password.svg';
 import EditProfileIc from './edit-profile.svg';
 import SignOutIc from './sign-out.svg';
 import HistoryIc from './history.svg';
+import BackIc from './arrow-left.svg';
+import cartWhiteIc from './cart-white.svg';
 
 export {
   HomeActive,
@@ -26,4 +28,6 @@ export {
   EditProfileIc,
   SignOutIc,
   HistoryIc,
+  BackIc,
+  cartWhiteIc,
 };

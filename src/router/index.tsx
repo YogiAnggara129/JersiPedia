@@ -1,5 +1,5 @@
 import React from 'react';
-import {Home, ListJersey, Profile, Splash} from '../pages';
+import {Home, JerseyDetail, ListJersey, Profile, Splash} from '../pages';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {BottomNavigator} from '../components';
@@ -26,6 +26,11 @@ interface ITabItem {
   isHeaderShown: boolean;
 }
 
+export type RootStackParamList = {
+  Splash: undefined;
+  MainApp: undefined;
+  JerseyDetail: undefined;
+};
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 const BottomNavInit = (props: any) => <BottomNavigator {...props} />;
@@ -90,6 +95,11 @@ export default function Router() {
       <Stack.Screen
         name="MainApp"
         component={MainApp}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="JerseyDetail"
+        component={JerseyDetail}
         options={{headerShown: false}}
       />
     </Stack.Navigator>

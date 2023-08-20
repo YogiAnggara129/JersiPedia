@@ -27,7 +27,7 @@ export const dummyMenu: IMenu[] = [
     page: 'History',
   },
   {
-    id: 1,
+    id: 4,
     name: 'Sign Out',
     image: <SignOutIc />,
     page: 'Login',
