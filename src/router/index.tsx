@@ -11,6 +11,7 @@ import {
   ProfileActive,
   ProfileIc,
 } from '../assets/icons';
+import {IJersey} from '../data/interface/jersey';
 
 interface ITabItem {
   name: string;
@@ -29,7 +30,9 @@ interface ITabItem {
 export type RootStackParamList = {
   Splash: undefined;
   MainApp: undefined;
-  JerseyDetail: undefined;
+  JerseyDetail: {
+    data: IJersey;
+  };
 };
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();

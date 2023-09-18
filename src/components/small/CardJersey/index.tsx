@@ -4,12 +4,15 @@ import {IJersey} from '../../../data/interface/jersey';
 import {fonts, responsiveHeight, responsiveWidth} from '../../../utils';
 import {CustomTextButton} from '../CustomButton';
 import SizedBox from '../SizedBox';
+import {RootStackParamList} from '../../../router';
+import {NavigationProp, useNavigation} from '@react-navigation/native';
 
 export interface ICardJerseyProps {
   jersey: IJersey;
 }
 
 export default function CardJersey(props: ICardJerseyProps) {
+  const navigation = useNavigation<NavigationProp<RootStackParamList>>();
   return (
     <View style={styles.container}>
       <View style={styles.containerImage}>
@@ -17,7 +20,12 @@ export default function CardJersey(props: ICardJerseyProps) {
         <Text style={styles.title}>{props.jersey.nama}</Text>
       </View>
       <SizedBox height={5} />
-      <CustomTextButton text="Detail" />
+      <CustomTextButton
+        text="Detail"
+        onPress={() =>
+          navigation.navigate('JerseyDetail', {data: props.jersey})
+        }
+      />
     </View>
   );
 }
