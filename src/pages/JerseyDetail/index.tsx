@@ -1,27 +1,32 @@
 import {StyleSheet, Text, TextInput, View} from 'react-native';
 import React from 'react';
-import {colors, fonts, responsiveHeight} from '../../utils';
+import {colors, fonts, responsiveHeight, responsiveWidth} from '../../utils';
 import CustomIconButton from '../../components/small/CustomButton';
-import {BackIc} from '../../assets';
+import {BackIc, CartIc} from '../../assets';
 import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
 import {RootStackParamList} from '../../router';
 import {RFValue} from 'react-native-responsive-fontsize';
 import {SizedBox} from '../../components';
 import CardLiga from '../../components/small/CardLiga';
 import JerseySlider from '../../components/big/JerseySlider';
+import {
+  CustomTextAreaInput,
+  CustomTextInput,
+} from '../../components/small/CustomInput';
+import CustomDropdown from '../../components/small/CustomDropdown';
 
 export default function JerseyDetail() {
   const navigation = useNavigation();
   const {params} = useRoute<RouteProp<RootStackParamList>>();
   return (
     <View style={styles.page}>
+      <JerseySlider images={params?.data.gambar ?? []} />
       <View style={styles.button}>
         <CustomIconButton
           icon={<BackIc />}
           onPress={() => navigation.goBack()}
         />
       </View>
-      <JerseySlider images={params?.data.gambar ?? []} />
       <View style={styles.container}>
         <View style={styles.liga}>
           <CardLiga liga={params?.data.liga} />
@@ -33,13 +38,36 @@ export default function JerseyDetail() {
         <SizedBox height={RFValue(12)} />
         <Text style={styles.price}>Harga : Rp{params?.data.harga}</Text>
         <View style={styles.line} />
-        <Text>Jenis : {params?.data.jenis}</Text>
-        <Text>Berat : {params?.data.berat}</Text>
 
-        <Text>Jumlah :</Text>
-        <TextInput />
+        <View style={styles.wrapperJenisBerat}>
+          <Text>Jenis : {params?.data.jenis}</Text>
+          <SizedBox width={20} />
+          <Text>Berat : {params?.data.berat}</Text>
+        </View>
 
-        <Text>Pilih Ukuran :</Text>
+        <SizedBox height={10} />
+        <View style={styles.wrapperInput}>
+          <CustomTextInput
+            label={'Jumlah'}
+            fontSize={13}
+            width={responsiveWidth(166)}
+            height={responsiveHeight(33)}
+          />
+          <CustomDropdown
+            label={'Pilih Ukuran'}
+            datas={params?.data.ukuran ?? []}
+            fontSize={13}
+            width={responsiveWidth(166)}
+            height={responsiveHeight(33)}
+          />
+        </View>
+        <SizedBox height={10} />
+        <CustomTextAreaInput label={'Jumlah'} fontSize={13} />
+
+        <CustomIconButton
+          icon={<CartIc />}
+          onPress={() => navigation.goBack()}
+        />
       </View>
     </View>
   );
@@ -86,5 +114,13 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: 'rgba(196, 196, 196, 1.0)',
     marginVertical: 17,
+  },
+  wrapperJenisBerat: {
+    flexDirection: 'row',
+    marginBottom: 5,
+  },
+  wrapperInput: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
 });
