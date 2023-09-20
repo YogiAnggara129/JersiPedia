@@ -12,7 +12,7 @@ import EditProfileIc from './edit-profile.svg';
 import SignOutIc from './sign-out.svg';
 import HistoryIc from './history.svg';
 import BackIc from './arrow-left.svg';
-import cartWhiteIc from './cart-white.svg';
+import CartWhiteIc from './cart-white.svg';
 
 export {
   HomeActive,
@@ -29,5 +29,5 @@ export {
   SignOutIc,
   HistoryIc,
   BackIc,
-  cartWhiteIc,
+  CartWhiteIc,
 };

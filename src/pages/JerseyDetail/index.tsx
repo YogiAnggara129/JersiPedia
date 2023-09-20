@@ -1,8 +1,10 @@
-import {StyleSheet, Text, TextInput, View} from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import {colors, fonts, responsiveHeight, responsiveWidth} from '../../utils';
-import CustomIconButton from '../../components/small/CustomButton';
-import {BackIc, CartIc} from '../../assets';
+import CustomIconButton, {
+  CustomButton,
+} from '../../components/small/CustomButton';
+import {BackIc, CartIc, CartWhiteIc} from '../../assets';
 import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
 import {RootStackParamList} from '../../router';
 import {RFValue} from 'react-native-responsive-fontsize';
@@ -31,11 +33,11 @@ export default function JerseyDetail() {
         <View style={styles.liga}>
           <CardLiga liga={params?.data.liga} />
         </View>
-        <SizedBox height={21} />
+        <SizedBox height={5} />
         <Text style={styles.title} numberOfLines={2}>
           {params?.data.nama}
         </Text>
-        <SizedBox height={RFValue(12)} />
+        <SizedBox height={5} />
         <Text style={styles.price}>Harga : Rp{params?.data.harga}</Text>
         <View style={styles.line} />
 
@@ -61,11 +63,16 @@ export default function JerseyDetail() {
             height={responsiveHeight(33)}
           />
         </View>
+
         <SizedBox height={10} />
         <CustomTextAreaInput label={'Jumlah'} fontSize={13} />
 
-        <CustomIconButton
-          icon={<CartIc />}
+        <SizedBox height={10} />
+        <CustomButton
+          icon={<CartWhiteIc />}
+          text="Masuk Keranjang"
+          // fontSize={18}
+          // padding={responsiveHeight(17)}
           onPress={() => navigation.goBack()}
         />
       </View>
@@ -77,7 +84,7 @@ const styles = StyleSheet.create({
   page: {flex: 1, backgroundColor: colors.primary},
   container: {
     backgroundColor: colors.white,
-    height: responsiveHeight(493),
+    height: responsiveHeight(520),
     width: '100%',
     position: 'absolute',
     bottom: 0,
@@ -113,7 +120,7 @@ const styles = StyleSheet.create({
     borderStyle: 'solid',
     borderWidth: 1,
     borderColor: 'rgba(196, 196, 196, 1.0)',
-    marginVertical: 17,
+    marginVertical: 10,
   },
   wrapperJenisBerat: {
     flexDirection: 'row',

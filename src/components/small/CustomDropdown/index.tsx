@@ -40,8 +40,8 @@ const CustomDropdown = (props: ICustomDropdownProps) => {
           }}
           selectedValue={selectedValue}
           onValueChange={(itemValue, _) => setSelectedValue(itemValue)}>
-          {props.datas.map(item => (
-            <Picker.Item label={item} value={item} />
+          {props.datas.map((item, index) => (
+            <Picker.Item key={index} label={item} value={item} />
           ))}
         </Picker>
       </View>

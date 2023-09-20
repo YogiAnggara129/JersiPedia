@@ -3,6 +3,7 @@ import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React, {ReactNode} from 'react';
 import {colors, fonts} from '../../../utils';
 import {CartIc} from '../../../assets/icons';
+import SizedBox from '../SizedBox';
 
 type CustomButtonActionProps = {
   onPress?: () => void;
@@ -15,6 +16,7 @@ type CustomIconButtonProps = {
 
 type CustomTextButtonProps = {
   text: string;
+  fontSize?: number;
 };
 
 type CustomButtonStyleProps = {
@@ -53,7 +55,35 @@ export function CustomTextButton(
         padding: props.padding ?? 5,
       }}
       onPress={props.onPress}>
-      <Text style={styles.title}>{props.text}</Text>
+      <Text style={{...styles.title, fontSize: props.fontSize}}>
+        {props.text}
+      </Text>
+    </TouchableOpacity>
+  );
+}
+
+export function CustomButton(
+  props: CustomTextButtonProps &
+    CustomIconButtonProps &
+    CustomButtonActionProps &
+    CustomButtonStyleProps,
+) {
+  return (
+    <TouchableOpacity
+      style={{
+        ...styles.container,
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: colors.primary,
+        padding: props.padding ?? 5,
+      }}
+      onPress={props.onPress}>
+      {props.icon}
+      <SizedBox width={10} />
+      <Text style={{...styles.title, fontSize: props.fontSize}}>
+        {props.text}
+      </Text>
     </TouchableOpacity>
   );
 }
