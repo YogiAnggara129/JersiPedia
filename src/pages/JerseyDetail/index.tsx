@@ -4,7 +4,7 @@ import {colors, fonts, responsiveHeight, responsiveWidth} from '../../utils';
 import CustomIconButton, {
   CustomButton,
 } from '../../components/small/CustomButton';
-import {BackIc, CartIc, CartWhiteIc} from '../../assets';
+import {BackIc, CartWhiteIc} from '../../assets';
 import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
 import {RootStackParamList} from '../../router';
 import {RFValue} from 'react-native-responsive-fontsize';

@@ -13,6 +13,7 @@ import SignOutIc from './sign-out.svg';
 import HistoryIc from './history.svg';
 import BackIc from './arrow-left.svg';
 import CartWhiteIc from './cart-white.svg';
+import RemoveIc from './remove-ic.svg';
 
 export {
   HomeActive,
@@ -30,4 +31,5 @@ export {
   HistoryIc,
   BackIc,
   CartWhiteIc,
+  RemoveIc,
 };

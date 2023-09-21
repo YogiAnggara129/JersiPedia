@@ -12,6 +12,7 @@ import {
   ProfileIc,
 } from '../assets/icons';
 import {IJersey} from '../data/interface/jersey';
+import Cart from '../pages/Cart';
 
 interface ITabItem {
   name: string;
@@ -33,6 +34,7 @@ export type RootStackParamList = {
   JerseyDetail: {
     data: IJersey;
   };
+  Cart: undefined;
 };
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -104,6 +106,11 @@ export default function Router() {
         name="JerseyDetail"
         component={JerseyDetail}
         options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="Cart"
+        component={Cart}
+        options={{headerShown: true}}
       />
     </Stack.Navigator>
   );

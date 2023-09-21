@@ -1,5 +1,5 @@
 export interface ILiga {
   id: number;
-  name: string;
-  image: any;
+  nama: string;
+  gambar: any;
 }

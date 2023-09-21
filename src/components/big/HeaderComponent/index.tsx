@@ -5,8 +5,11 @@ import {colors, fonts} from '../../../utils';
 import {SearchIc} from '../../../assets/icons';
 import {CartButton} from '../../small/CustomButton';
 import SizedBox from '../../small/SizedBox';
+import {NavigationProp, useNavigation} from '@react-navigation/native';
+import {RootStackParamList} from '../../../router';
 
 export default function HeaderComponent() {
+  const navigation = useNavigation<NavigationProp<RootStackParamList>>();
   return (
     <View style={styles.container}>
       <View style={styles.wrapperHeader}>
@@ -15,7 +18,7 @@ export default function HeaderComponent() {
           <TextInput placeholder="Cari Jersey. . ." style={styles.input} />
         </View>
         <SizedBox width={10} />
-        <CartButton totalCart={5} />
+        <CartButton totalCart={5} onPress={() => navigation.navigate('Cart')} />
       </View>
     </View>
   );
