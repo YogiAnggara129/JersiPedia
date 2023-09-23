@@ -12,13 +12,15 @@ interface ICardMenuProps {
 }
 
 export default function CardMenu(props: ICardMenuProps) {
-  // const navigation = useNavigation<NavigationProp<>>();
+  const menuRoute: {[key: string]: any} = {};
+  const pageName = props.menu.page;
+  menuRoute[pageName] = undefined;
+  const navigation =
+    useNavigation<NavigationProp<RootStackParamList & typeof menuRoute>>();
   return (
     <TouchableOpacity
       style={styles.container}
-      onPress={() => {}}
-      // onPress={() => navigation.navigate(props.menu.page)}
-    >
+      onPress={() => navigation.navigate(props.menu.page)}>
       <View style={styles.menu}>
         {props.menu.image}
         <SizedBox width={20} />

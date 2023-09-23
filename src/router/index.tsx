@@ -15,6 +15,7 @@ import {IJersey} from '../data/interface/jersey';
 import Cart from '../pages/Cart';
 import Checkout from '../pages/Checkout';
 import ProfileEdit from '../pages/ProfileEdit';
+import ChangePassword from '../pages/ChangePassword';
 
 interface ITabItem {
   name: string;
@@ -39,6 +40,7 @@ export type RootStackParamList = {
   Cart: undefined;
   Checkout: undefined;
   ProfileEdit: undefined;
+  ChangePassword: undefined;
 };
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -124,6 +126,11 @@ export default function Router() {
       <Stack.Screen
         name="ProfileEdit"
         component={ProfileEdit}
+        options={{headerShown: true}}
+      />
+      <Stack.Screen
+        name="ChangePassword"
+        component={ChangePassword}
         options={{headerShown: true}}
       />
     </Stack.Navigator>

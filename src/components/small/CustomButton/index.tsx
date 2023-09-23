@@ -23,7 +23,7 @@ type CustomButtonStyleProps = {
   padding?: number;
 };
 
-export default function CustomIconButton(
+export function CustomIconButton(
   props: CustomIconButtonProps &
     CustomButtonActionProps &
     CustomButtonStyleProps,

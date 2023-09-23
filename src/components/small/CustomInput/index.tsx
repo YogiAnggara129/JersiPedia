@@ -13,6 +13,7 @@ interface ICustomTextInputProps {
   label: string;
   fontSize?: number;
   value?: string;
+  secureTextEntry?: boolean;
 }
 
 interface ICustomTextInputSizeProps {
@@ -43,6 +44,7 @@ export function CustomTextInput(
         height: props.height,
         fontSize: props.fontSize ?? styles.textInput.fontSize,
       }}
+      propsInput={{secureTextEntry: props.secureTextEntry}}
     />
   );
 }
