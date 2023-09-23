@@ -12,7 +12,7 @@ export const dummyMenu: IMenu[] = [
     id: 1,
     name: 'Edit Profile',
     image: <EditProfileIc />,
-    page: 'EditProfile',
+    page: 'ProfileEdit',
   },
   {
     id: 2,

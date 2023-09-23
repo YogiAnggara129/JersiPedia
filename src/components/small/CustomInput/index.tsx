@@ -10,8 +10,9 @@ import {colors, fonts} from '../../../utils';
 import React from 'react';
 
 interface ICustomTextInputProps {
-  label: String;
+  label: string;
   fontSize?: number;
+  value?: string;
 }
 
 interface ICustomTextInputSizeProps {
@@ -71,7 +72,11 @@ export function CustomTextInputBase(
       <Text style={props.styleLabel} {...props.propsLabel}>
         {props.label} :
       </Text>
-      <TextInput style={props.styleInput} {...props.propsInput} />
+      <TextInput
+        value={props.value}
+        style={props.styleInput}
+        {...props.propsInput}
+      />
     </View>
   );
 }

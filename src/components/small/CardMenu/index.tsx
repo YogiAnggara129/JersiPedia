@@ -1,24 +1,31 @@
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
 import {IMenu} from '../../../data/interface/menu';
 import {ArrowRightIc} from '../../../assets';
 import {colors, fonts, responsiveHeight} from '../../../utils';
 import SizedBox from '../SizedBox';
+import {NavigationProp, useNavigation} from '@react-navigation/native';
+import {RootStackParamList} from '../../../router';
 
 interface ICardMenuProps {
   menu: IMenu;
 }
 
 export default function CardMenu(props: ICardMenuProps) {
+  // const navigation = useNavigation<NavigationProp<>>();
   return (
-    <View style={styles.container}>
+    <TouchableOpacity
+      style={styles.container}
+      onPress={() => {}}
+      // onPress={() => navigation.navigate(props.menu.page)}
+    >
       <View style={styles.menu}>
         {props.menu.image}
         <SizedBox width={20} />
         <Text style={styles.text}>{props.menu.name}</Text>
       </View>
       <ArrowRightIc />
-    </View>
+    </TouchableOpacity>
   );
 }
 

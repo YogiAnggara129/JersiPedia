@@ -13,6 +13,8 @@ import {
 } from '../assets/icons';
 import {IJersey} from '../data/interface/jersey';
 import Cart from '../pages/Cart';
+import Checkout from '../pages/Checkout';
+import ProfileEdit from '../pages/ProfileEdit';
 
 interface ITabItem {
   name: string;
@@ -35,6 +37,8 @@ export type RootStackParamList = {
     data: IJersey;
   };
   Cart: undefined;
+  Checkout: undefined;
+  ProfileEdit: undefined;
 };
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -110,6 +114,16 @@ export default function Router() {
       <Stack.Screen
         name="Cart"
         component={Cart}
+        options={{headerShown: true}}
+      />
+      <Stack.Screen
+        name="Checkout"
+        component={Checkout}
+        options={{headerShown: true}}
+      />
+      <Stack.Screen
+        name="ProfileEdit"
+        component={ProfileEdit}
         options={{headerShown: true}}
       />
     </Stack.Navigator>
