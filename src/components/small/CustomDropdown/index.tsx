@@ -6,9 +6,9 @@ import {Picker} from '@react-native-picker/picker';
 interface ICustomDropdownProps {
   label: string;
   datas: string[];
-  width: number;
-  height: number;
-  fontSize: number;
+  width?: number;
+  height?: number;
+  fontSize?: number;
 }
 
 // interface ICustomDropdownStyleProps {
