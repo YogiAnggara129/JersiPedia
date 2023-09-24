@@ -17,6 +17,9 @@ import Checkout from '../pages/Checkout';
 import ProfileEdit from '../pages/ProfileEdit';
 import ChangePassword from '../pages/ChangePassword';
 import History from '../pages/History';
+import Login from '../pages/Login';
+import Register1 from '../pages/Register/Register1';
+import Register2 from '../pages/Register/Register2';
 
 interface ITabItem {
   name: string;
@@ -43,6 +46,9 @@ export type RootStackParamList = {
   ProfileEdit: undefined;
   ChangePassword: undefined;
   History: undefined;
+  Login: undefined;
+  Register1: undefined;
+  Register2: undefined;
 };
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -138,6 +144,21 @@ export default function Router() {
       <Stack.Screen
         name="History"
         component={History}
+        options={{headerShown: true}}
+      />
+      <Stack.Screen
+        name="Login"
+        component={Login}
+        options={{headerShown: true}}
+      />
+      <Stack.Screen
+        name="Register1"
+        component={Register1}
+        options={{headerShown: true}}
+      />
+      <Stack.Screen
+        name="Register2"
+        component={Register2}
         options={{headerShown: true}}
       />
     </Stack.Navigator>

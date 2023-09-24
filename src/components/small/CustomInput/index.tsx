@@ -1,4 +1,5 @@
 import {
+  KeyboardTypeOptions,
   StyleSheet,
   Text,
   TextInput,
@@ -14,6 +15,7 @@ interface ICustomTextInputProps {
   fontSize?: number;
   value?: string;
   secureTextEntry?: boolean;
+  keyboardType?: KeyboardTypeOptions;
 }
 
 interface ICustomTextInputSizeProps {
@@ -44,7 +46,10 @@ export function CustomTextInput(
         height: props.height,
         fontSize: props.fontSize ?? styles.textInput.fontSize,
       }}
-      propsInput={{secureTextEntry: props.secureTextEntry}}
+      propsInput={{
+        secureTextEntry: props.secureTextEntry,
+        keyboardType: props.keyboardType,
+      }}
     />
   );
 }

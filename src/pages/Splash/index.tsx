@@ -1,15 +1,16 @@
 import {StyleSheet, View} from 'react-native';
 import React, {useEffect} from 'react';
 import {Illustration, Logo} from '../../assets';
+import {useNavigation} from '@react-navigation/native';
+import {RootStackParamList} from '../../router';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 
-type ISplashProps = {
-  navigation: any;
-};
-
-export default function Splash({navigation}: ISplashProps) {
+export default function Splash() {
+  const navigation =
+    useNavigation<NativeStackNavigationProp<RootStackParamList>>();
   useEffect(() => {
     setTimeout(() => {
-      navigation.replace('MainApp');
+      navigation.replace('Login');
     }, 3000);
   });
   return (
