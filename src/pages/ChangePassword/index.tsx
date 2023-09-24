@@ -1,9 +1,9 @@
 import {StyleSheet, View} from 'react-native';
 import React from 'react';
 import {colors, responsiveHeight} from '../../utils';
-import {CustomButton} from '../../components';
 import {ArrowRightIc} from '../../assets';
 import {CustomTextInput} from '../../components/small/CustomInput';
+import {CustomButton} from '../../components/small/CustomButton';
 
 export default function ChangePassword() {
   return (

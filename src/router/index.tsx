@@ -149,17 +149,17 @@ export default function Router() {
       <Stack.Screen
         name="Login"
         component={Login}
-        options={{headerShown: true}}
+        options={{headerShown: false}}
       />
       <Stack.Screen
         name="Register1"
         component={Register1}
-        options={{headerShown: true}}
+        options={{headerShown: false}}
       />
       <Stack.Screen
         name="Register2"
         component={Register2}
-        options={{headerShown: true}}
+        options={{headerShown: false}}
       />
     </Stack.Navigator>
   );

@@ -13,7 +13,7 @@ import {
   CustomButton,
   CustomIconButton,
 } from '../../components/small/CustomButton';
-import {ArrowRightIc} from '../../assets';
+import {ArrowRightIc, BackIc} from '../../assets';
 import {SizedBox} from '../../components';
 import {CustomTextInput} from '../../components/small/CustomInput';
 import {colors, fonts, responsiveWidth} from '../../utils';
@@ -30,7 +30,7 @@ export default function Register1() {
         <ScrollView showsVerticalScrollIndicator={false}>
           <View style={styles.btnBack}>
             <CustomIconButton
-              icon="arrow-left"
+              icon={<BackIc />}
               onPress={() => navigation.goBack()}
             />
           </View>
