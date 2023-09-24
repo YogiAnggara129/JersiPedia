@@ -16,6 +16,7 @@ import Cart from '../pages/Cart';
 import Checkout from '../pages/Checkout';
 import ProfileEdit from '../pages/ProfileEdit';
 import ChangePassword from '../pages/ChangePassword';
+import History from '../pages/History';
 
 interface ITabItem {
   name: string;
@@ -41,6 +42,7 @@ export type RootStackParamList = {
   Checkout: undefined;
   ProfileEdit: undefined;
   ChangePassword: undefined;
+  History: undefined;
 };
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -131,6 +133,11 @@ export default function Router() {
       <Stack.Screen
         name="ChangePassword"
         component={ChangePassword}
+        options={{headerShown: true}}
+      />
+      <Stack.Screen
+        name="History"
+        component={History}
         options={{headerShown: true}}
       />
     </Stack.Navigator>
