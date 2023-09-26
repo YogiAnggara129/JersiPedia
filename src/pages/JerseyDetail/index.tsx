@@ -1,7 +1,10 @@
 import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import {colors, fonts, responsiveHeight, responsiveWidth} from '../../utils';
-import {CustomButton, CustomIconButton} from '../../components/small/CustomButton';
+import {
+  CustomButton,
+  CustomIconButton,
+} from '../../components/small/CustomButton';
 import {BackIc, CartWhiteIc} from '../../assets';
 import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
 import {RootStackParamList} from '../../router';

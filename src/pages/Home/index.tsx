@@ -1,5 +1,5 @@
 import {View, StyleSheet, Text, ScrollView} from 'react-native';
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import HeaderComponent from '../../components/big/HeaderComponent';
 import {colors, fonts} from '../../utils';
 import {BannerSlider, SizedBox} from '../../components';
@@ -9,11 +9,21 @@ import ListJersey from '../../components/big/ListJersey';
 import {CustomTextButton} from '../../components/small/CustomButton';
 import useListLiga from '../../hooks/useListLiga';
 import useListJersey from '../../hooks/useListJersey';
+import {useAppSelector, useAppDispatch} from '../../hooks/redux';
+import {getUser, user} from '../../reducers/user';
 
-export default function Home() {
+function Home() {
   const [ligaSelected, setLigaSelected] = useState<ILiga | undefined>();
   const listLiga = useListLiga(ligas => setLigaSelected(ligas[0]));
   const listJersey = useListJersey(ligaSelected);
+  const userData = useAppSelector(user);
+  const dispatch = useAppDispatch();
+
+  // console.log(dataUser);
+
+  useEffect(() => {
+    dispatch(getUser());
+  }, [dispatch]);
 
   return (
     <View style={styles.container}>
@@ -21,7 +31,7 @@ export default function Home() {
         <HeaderComponent />
         <BannerSlider />
         <View style={styles.chooseLigaContainer}>
-          <Text style={styles.label}>Pilih Liga</Text>
+          <Text style={styles.label}>Pilih Liga {userData.email}</Text>
           <ListLiga ligas={listLiga} />
           <SizedBox height={10} />
           <Text style={styles.label}>
@@ -36,6 +46,8 @@ export default function Home() {
     </View>
   );
 }
+
+export default Home;
 
 const styles = StyleSheet.create({
   container: {backgroundColor: colors.white},
