@@ -3,9 +3,19 @@
 // import thunk from 'redux-thunk';
 import {configureStore} from '@reduxjs/toolkit';
 import UserReducer from './user';
+import ProvinceReducer from './province';
 
 // const store = createStore(rootReducer, applyMiddleware(thunk));
-const store = configureStore({reducer: {user: UserReducer}});
+const store = configureStore({
+  reducer: {user: UserReducer, province: ProvinceReducer},
+  middleware: getDefaultMiddleware =>
+    getDefaultMiddleware({
+      thunk: {
+        extraArgument: {},
+        // extraArgument: {serviceApi},
+      },
+    }),
+});
 
 export default store;
 

@@ -11,23 +11,28 @@ import useListLiga from '../../hooks/useListLiga';
 import useListJersey from '../../hooks/useListJersey';
 import {useAppSelector, useAppDispatch} from '../../hooks/redux';
 import {getUser, user} from '../../reducers/user';
+import {getProvincies, province} from '../../reducers/province';
 
 function Home() {
   const [ligaSelected, setLigaSelected] = useState<ILiga | undefined>();
   const listLiga = useListLiga(ligas => setLigaSelected(ligas[0]));
   const listJersey = useListJersey(ligaSelected);
   const userData = useAppSelector(user);
+  const provinceData = useAppSelector(province);
   const dispatch = useAppDispatch();
 
   // console.log(dataUser);
 
   useEffect(() => {
     dispatch(getUser());
+    dispatch(getProvincies());
   }, [dispatch]);
 
   return (
     <View style={styles.container}>
       <ScrollView>
+        <Text>{String(provinceData.fetchStatus.status)}</Text>
+        <Text>{String(provinceData.data![0].province)}</Text>
         <HeaderComponent />
         <BannerSlider />
         <View style={styles.chooseLigaContainer}>

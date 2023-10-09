@@ -21,11 +21,12 @@ import {RootStackParamList} from '../../router';
 import {SizedBox} from '../../components';
 import {CustomTextAreaInput} from '../../components/small/CustomInput';
 import CustomDropdown from '../../components/small/CustomDropdown';
+import useProvincies from '../../hooks/useProvincies';
 
 export default function Register2() {
   const navigation =
     useNavigation<NativeStackNavigationProp<RootStackParamList>>();
-  const provincies: string[] = [];
+  const provinceData = useProvincies();
   const cities: string[] = [];
   return (
     <KeyboardAvoidingView
@@ -56,7 +57,10 @@ export default function Register2() {
           <View style={styles.card}>
             <CustomTextAreaInput label="Alamat" />
 
-            <CustomDropdown label="Provinsi" datas={provincies} />
+            <CustomDropdown
+              label="Provinsi"
+              datas={provinceData.data?.map(e => e.province) ?? []}
+            />
             <CustomDropdown label="Kota/Kab" datas={cities} />
             <SizedBox height={25} />
             <CustomButton

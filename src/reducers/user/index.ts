@@ -49,3 +49,21 @@ export const {getUser} = userSlice.actions;
 export const user = (state: RootState) => state.user;
 
 export default userSlice.reducer;
+
+type SliceActions<T> = {
+  [K in keyof T]: {
+    type: K;
+    payload: T[K] extends (...args: infer P) => void ? P[0] : never;
+  };
+}[keyof T];
+export type ActionTypes = SliceActions<typeof userSlice.actions>;
+
+// /*
+// ActionTypes = {
+//     type: "fetchData";
+//     payload: string;
+// } | {
+//     type: "onFetchFailed";
+//     payload: string;
+// }
+// */
